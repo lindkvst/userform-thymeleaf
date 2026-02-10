@@ -39,4 +39,21 @@ public class UserController {
         return "redirect:/user/users";
     }
 
+    //Display the edit form
+    @GetMapping("/edit/{userId}")
+    public String editUser(@PathVariable int userId, Model model){
+        User user = userService.getUserById(userId);
+
+        model.addAttribute("user", user);
+        model.addAttribute("userRoles", UserRole.values());
+        return "user-edit-form";
+    }
+
+    //Handle the form submission
+    @PostMapping("/update")
+    public String editUser(@ModelAttribute User user){
+        userService.updateUser(user);
+        return "redirect:/user/users";
+    }
+
 }

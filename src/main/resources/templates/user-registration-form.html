@@ -16,7 +16,7 @@
     <br>
     <label>User Role</label>
     <select th:field="*{userRole}">
-        <option th:each="role: ${userRoles}" th:value="${role}" th:text="${role}"></option>
+        <option th:each="role: ${userRoles}" th:value="${role}" th:text="${role.toString().toLowerCase()}"></option>
     </select>
     <br>
     <button type="submit">Register</button>

@@ -22,5 +22,18 @@ public class UserService {
         return userRepository.addUser(user);
     }
 
+    public User getUserById(int userId) {
+        User user = userRepository.getUserByUserId(userId);
+        if (user == null) {
+            throw new RuntimeException("Brugeren findes ikke");
+        } else {
+            return user;
+        }
+    }
+
+    public User updateUser(User user) {
+        return userRepository.updateUser(user);
+    }
+
 
 }
